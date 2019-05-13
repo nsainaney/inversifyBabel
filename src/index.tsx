@@ -1,21 +1,28 @@
 import React from 'react'
-import './services'
+import { kernel } from './services'
+import getDecorators from 'inversify-inject-decorators'
 import { Text, View } from 'react-native';
-import { injectable, inject } from 'inversify'
+import { injectable } from 'inversify'
+
+let { lazyInject } = getDecorators(kernel);
 
 @injectable()
 export default class App extends React.Component {
 
-    @inject('hello')
-    hello
+  @lazyInject('hello')
+  hello
 
-    @inject('there')
-    there
+  @lazyInject('there')
+  there
 
-    componentDidMount() {
-        this.hello.sayHi()
-        this.there.sayThere()
-    }
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    this.hello.sayHi()
+    this.there.sayThere()
+  }
 
   render() {
     return (
