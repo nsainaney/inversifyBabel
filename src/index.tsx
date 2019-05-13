@@ -1,6 +1,6 @@
 import React from 'react'
 import './services'
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { injectable, inject } from 'inversify'
 
 @injectable()
@@ -19,18 +19,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Text>Open up App.js to start working on your app!</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
